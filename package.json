@@ -1,0 +1,16 @@
+{
+  "name": "simple-rest-docs",
+  "version": "0.1",
+  "description": "Tool for generating simple REST Api documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "comment-parser": "^0.4.0",
+    "globby": "^6.1.0",
+    "underscore": "^1.8.3"
+  }
+}

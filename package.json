@@ -1,6 +1,6 @@
 {
   "name": "simple-rest-docs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Tool for generating simple REST Api documentation",
   "main": "index.js",
   "scripts": {

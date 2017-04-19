@@ -1,6 +1,6 @@
 {
   "name": "simple-rest-docs",
-  "version": "0.1",
+  "version": "v0.2.0",
   "description": "Tool for generating simple REST Api documentation",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,11 @@
   },
   "author": "Maciej Matuszewski",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maciejmatu/Simple-Rest-Docs.git"
+  },
+  "keywords": ["simple", "rest", "docs", "documentation", "markdown", "md"],
   "dependencies": {
     "comment-parser": "^0.4.0",
     "globby": "^6.1.0",

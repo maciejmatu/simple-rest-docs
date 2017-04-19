@@ -1,1 +1,2 @@
-# Simple Rest Api Documentation Generator
+*Simple Rest Api Documentation Generator*
+----

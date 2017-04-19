@@ -1,32 +1,58 @@
-module.exports.generate = (obj) => {
-  let compiledString = '';
+module.exports = {
 
-  function parseBlock(el) {
-    el.tags.forEach((tag) => {
-      if (typeof TEMPLATES[tag.tag] !== 'function') return;
+  title: (tag) => {
+    return `
+    **${tag.description}** ----`;
+  },
 
-      compiledString += TEMPLATES[tag.tag](tag);
-    });
-  };
+  desc: (tag) => {
+    return `  ${tag.description}`;
+  },
 
-  const TEMPLATES = {
+  pre_url: (tag) => {
+    return `* **URL**`;
+  },
 
-    title: val => {
-      return `**${val}**
-      ----`;
-    },
+  url: (tag) => {
+    return `${tag.description}`;
+  },
 
-    desc: val => {
-      return `  ${val}`;
-    },
+  pre_method: (tag) => {
+    return `* **METHOD**`;
+  },
 
-    url: val => {
+  method: (tag) => {
+    return ` \`${tag.description}\` `;
+  },
 
-    }
+  pre_param: (tag) => {
+    return `*  **URL Params**`;
+  },
+
+  param: (tag) => {
+    return `\`${tag.description}\``;
+  },
+
+  pre_data: (tag) => {
+    return `*  **Data Params**`;
+  },
+
+  data: (tag) => {
+    return `\`${tag.description}\``;
+  },
+
+  'pre_success-code_response': (tag) => {
+    return `* **Success Response:**`;
+  },
+
+  'success-code': (tag) => {
+    return `* **Code: ${tag.description}`
+  },
+
+  'success-content': (tag) => {
+    return `**Content:** \`${tag.description}\``
   }
-
-  obj.forEach(parseBlock);
-
+}
 //   let temp = `
 // **${template}**
 // ----
@@ -78,6 +104,3 @@ module.exports.generate = (obj) => {
 //     });
 //   \```
 // `;
-
-  return JSON.stringify(obj, 0, 2);
-}

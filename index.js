@@ -49,7 +49,7 @@ function generateTemplate(block) {
     tmplObject[tag.tag].push(tag.description);
   }));
 
-  const compiled = _.template(fs.readFileSync("./template.md", "utf8"));
+  const compiled = _.template(fs.readFileSync(__dirname + '/template.md', 'utf8'));
 
   return compiled({
     data: tmplObject,

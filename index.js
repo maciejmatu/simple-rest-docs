@@ -3,6 +3,8 @@ const globby = require('globby');
 const util = require('util');
 const fs = require('fs');
 const _ = require('underscore');
+const tidy = require('tidy-markdown');
+const beautify = require('node-beautify').beautifyJs;
 
 let options = {
   parsers: [
@@ -36,23 +38,30 @@ function parseFile(file, i) {
 }
 
 function saveToFile(allFiles) {
+  let finalString = '';
+
   allFiles = allFiles.filter(arr => { return arr.length > 0 });
 
-  fs.writeFileSync(options.output, generateTemplate(_.flatten(allFiles)), 'utf-8');
+  _.flatten(allFiles).forEach((comment) => {
+    finalString += generateTemplate(comment);
+  });
+
+  fs.writeFileSync(options.output, finalString, 'utf-8');
 }
 
-function generateTemplate(block) {
+function generateTemplate(comment) {
   let tmplObject = {};
 
-  block.forEach(comment => comment.tags.forEach(tag => {
+  comment.tags.forEach(tag => {
     tmplObject[tag.tag] = tmplObject[tag.tag] || [];
     tmplObject[tag.tag].push(tag.description);
-  }));
+  });
 
   const compiled = _.template(fs.readFileSync(__dirname + '/template.md', 'utf8'));
 
   return compiled({
     data: tmplObject,
+    beautify: beautify,
     isDefined: val => !_.isUndefined(val)
   });
 }

@@ -6,7 +6,7 @@
 ## <%= data.title %> ##
 <% } %>
 <% if (isDefined(data.desc) && data.desc.length > 0) { %>
-  Returns json data about a single user.
+  #### <%= data.desc %> ####
 <% } %>
 
 <% if (isDefined(data.url) && data.url.length > 0) { %>

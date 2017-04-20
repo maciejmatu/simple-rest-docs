@@ -6,6 +6,9 @@ This project was created in need of tool to document REST Api to README.md file 
 
 The notation was inspired by this article: [Documenting your REST API](https://gist.github.com/iros/3426278)
 
+### Install ###
+`npm install simple-rest-docs`
+
 ### How it works ###
 
 It is really simplified, and created for specific use. It parses only comments beginning with two asterisks after slash e.g. `/** */`,

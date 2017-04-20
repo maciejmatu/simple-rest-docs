@@ -3,7 +3,6 @@ const globby = require('globby');
 const util = require('util');
 const fs = require('fs');
 const _ = require('underscore');
-const tidy = require('tidy-markdown');
 const beautify = require('node-beautify').beautifyJs;
 
 let options = {
